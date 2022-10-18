@@ -1,0 +1,16 @@
+//Reverse the bits of an 32 bit unsigned integer A.
+unsigned int Solution::reverse(unsigned int A) {
+    if(A==0)return 0;
+    int sum=0,count=0;
+    while(A>0)
+    {
+        long long int temp;
+        if((A&1))
+        {
+            temp=pow(2,31-count);
+            sum+=temp;
+        }
+        count++;A=A>>1;
+    }
+    return sum;
+}
