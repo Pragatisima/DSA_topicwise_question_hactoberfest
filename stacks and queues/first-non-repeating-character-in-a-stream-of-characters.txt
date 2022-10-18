@@ -1,0 +1,16 @@
+string Solution::solve(string s) {
+    int n=s.length();
+    vector<int>v(26,0);
+    queue<char>q;
+    string ans="";
+    for(int i=0;i<n;i++)
+    {
+        v[s[i]-97]++;
+        q.push(s[i]);
+        while(!q.empty() && v[q.front()-97]>1)q.pop();
+        if(q.empty())ans+='#';
+        else ans+=q.front();
+    }
+    return ans;
+}
+
